@@ -1,0 +1,26 @@
+// // // // // // // // 
+//       HEADER      // 
+// // // // // // // // 
+
+
+@import "variables.scss";
+
+
+div.stack {
+	width: 20%;
+	padding: $margin;
+	float: left;
+	p.artist {
+		font-weight: 400;
+	}
+	p.title {
+		font-size: .9em;
+		color: $dark/.25;
+	}
+	img {
+		width: 100%;
+		padding: 0 0 100%;
+		background: $white*.95;
+		border-radius: 2px;
+	}
+}

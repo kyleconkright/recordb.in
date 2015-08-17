@@ -1,0 +1,9 @@
+<template name="login">
+    <form class="login">
+	    <h2>Welcome Back</h2>
+        <p><input type="email" name="email" placeholder="Email Address" required></p>
+        <p><input type="password" name="password" placeholder="Password" required></p>
+        <p class="button-bg"><button>Sign In</button></p>
+        <p class="switch">Don't have an account? <a href="{{pathFor route='register'}}">Sign Up</a></p>
+    </form>
+</template>

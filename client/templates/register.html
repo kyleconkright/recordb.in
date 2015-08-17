@@ -1,0 +1,9 @@
+<template name="register">
+    <form class="register" autocomplete="off">
+	    <h2>Create an Account</h2>
+        <p><input type="email" name="email" placeholder="Email Address" required></p>
+        <p><input type="password" name="password" placeholder="Password" required></p>
+        <p class="button-bg"><button>Sign Up</button></p>
+        <p class="switch">Already have an account? <a href="{{pathFor route='login'}}">Sign In</a></p>
+    </form>
+</template>

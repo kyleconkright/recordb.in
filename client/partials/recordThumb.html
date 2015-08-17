@@ -1,0 +1,17 @@
+<template name="recordThumb">
+	
+	<div class="stack">
+		<a href="{{pathFor route='recordPage'}}"><img></a>
+	
+		{{#if artistRoute}}
+
+		{{else}}
+			<p class="artist"><a href="{{pathFor 'artistPage' _id=this.artist._id}}">{{artist.name}}</a></p>
+
+		{{/if}}
+
+		<p class="title"><a href="{{pathFor route='recordPage'}}">{{title}}</a></p>
+	</div>
+	
+</template>
+
