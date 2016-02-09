@@ -1,0 +1,12 @@
+<template name="navigation">
+	<nav>
+		<ul>
+			{{#if currentUser}}
+				<li><a href="#" class="logout">Log Out</a></li>
+			{{else}}
+				<li><a href="{{pathFor route='register'}}">Register</a></li>
+				<li><a href="{{pathFor route='login'}}">Log In</a></li>
+			{{/if}}
+		</ul>
+	</nav>
+</template>

@@ -1,2 +1,5 @@
-Artists = new Meteor.Collection('artists');
-Records = new Meteor.Collection('records');
+///////////////
+//COLLECTIONS//
+///////////////
+Todos = new Mongo.Collection('todos');
+Lists = new Mongo.Collection('lists');

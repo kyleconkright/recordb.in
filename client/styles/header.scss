@@ -1,33 +1,30 @@
-// // // // // // // // 
-//       HEADER      // 
-// // // // // // // // 
-
-
-@import "variables.scss";
+@import 'style.scss';
 
 header {
-	background: $gradient1;
 	color: $white;
-	padding: $margin*2;
+	background: $gradient;
 	.container {
 		display: flex;
-		h1 {
+		padding: 0 $space;
+		height: $space*2.25;
+		line-height: $space*2.25;
+		> * {
 			flex: 1;
-			padding: 0;
-			a {
-				i.fa {
-					font-size: .8em;
-					position: relative;
-					top: -4px;
-				}
-			}
 		}
-		ul {
-			flex: 1;
-			align-self: center;
-			text-align: right;
-			li {
-				display: inline;
+		h1 a {
+			font-weight: 400;
+		}
+		nav {
+
+			ul {
+				text-align: right;
+				li {
+					display: inline;
+					a {
+						font-size: .75em;
+						cursor: pointer;
+					}
+				}
 			}
 		}
 	}

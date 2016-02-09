@@ -1,23 +1,11 @@
 <template name="main">
-	<header>
-		<div class="container">
-			<h1><a href="{{pathFor route='home'}}"><i class="fa fa-align-left fa-rotate-270"></i>rcrdbn</a></h1>
-			{{> navigation}}
-		</div><!-- container -->
-	</header>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	{{> header}}
+		
+	{{> yield}}
 
-	<main>
-		<div class="container">
-			{{> yield}}
-		</div><!-- container -->
-	</main>
+	<!-- GOOGLE FONT -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	
-	
-
-<!-- GOOGLE FONT -->	
-<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-<!-- FONT AWESOME ICONS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </template>

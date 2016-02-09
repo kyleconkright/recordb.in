@@ -1,0 +1,8 @@
+<template name="todos">
+	{{> addTodo}}
+	<ul>
+	{{#each todo}}
+		{{> todoItem}}
+	{{/each}}
+	</ul>
+</template>

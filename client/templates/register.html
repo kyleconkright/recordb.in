@@ -1,9 +1,15 @@
 <template name="register">
-    <form class="register" autocomplete="off">
-	    <h2>Create an Account</h2>
-        <p><input type="email" name="email" placeholder="Email Address" required></p>
-        <p><input type="password" name="password" placeholder="Password" required></p>
-        <p class="button-bg"><button>Sign Up</button></p>
-        <p class="switch">Already have an account? <a href="{{pathFor route='login'}}">Sign In</a></p>
-    </form>
+	<div class="container register-page login-page">
+		<h2>Create Account</h2>
+		<form class="register">
+			<input type="email" name="email" placeholder="email" required>
+			<div class="bar"></div>
+			<input type="password" name="password" placeholder="password" required>
+			<div class="bar"></div>
+			<div class="submit-holder">
+				<input type="submit" value="Create Account">
+			</div>
+		</form>
+		<p>Already have an account? <a href="{{pathFor route='login'}}">Sign In</a> </p>
+	</div>
 </template>

@@ -1,0 +1,85 @@
+@import 'style.scss';
+
+div.container.login-page, div.container.register-page {
+	width: 50%;
+	max-width: 500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 80vh;
+	justify-content: center;
+	> * {
+		
+	}
+	h2 {
+		text-align: center;
+		font-size: 1.5em;
+		margin: 0 0 $space;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		> * {
+			flex: 1;
+		}
+		input[type=email], input[type=password] {
+			padding: $space;
+			margin: $space 0 0;
+			border-bottom: 1px solid #ccc;
+			&::-webkit-input-placeholder {
+				color: #ccc !important;
+			}
+			&:focus {
+				+ .bar {
+					transform: scaleX(1);
+				}
+			}
+		}
+
+		.bar {
+			height: 1px;
+			position: relative;
+			top: -1px;
+			transform: scaleX(0);
+			transform-origin: left;
+			background: $gradient;
+			transition: .5s all;
+		}
+		div.submit-holder {
+			padding: 2px;
+			margin: $space*3 0 $space;
+			background: $gradient;
+			input[type="submit"] {
+				font-weight: 400;
+				background: white;
+				height: 55px;
+				line-height: 55px;
+				width: 100%;
+				transition: .2s background;
+				cursor: pointer;
+				&:hover {
+					background: $gradient;
+					color: $white;
+				}
+			}
+		}
+		~ p {
+			text-align: center;
+			font-size: .9em;
+			a {
+				border-bottom: 1px dotted;
+				font-weight: 400;
+				font-style: italic;
+			}
+		}
+	}
+}
+
+@media only screen
+and (max-width : 414px) and (orientation: portrait) {
+	div.container.login-page, div.container.register-page {
+		width: 100%;
+		min-height: 70vh;
+	}
+
+}
