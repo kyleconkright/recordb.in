@@ -12,6 +12,12 @@ Meteor.publish('todos', function(currentList){
 
 //METHODS
 Meteor.methods({
+    'sendVerificationLink': function() {
+        var userId = Meteor.userId();
+        if(userId) {
+            return Accounts.sendVerificationEmail(userId);
+        }
+    },
     'createNewList': function(listName){
         var currentUser = Meteor.userId();
         check(listName, String);

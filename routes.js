@@ -15,6 +15,20 @@ Router.route('/register');
 
 Router.route('/login');
 
+Router.route('/verify-email/:token', {
+    name: 'verify-email',
+    action(params) {
+        Accounts.verifyEmail(this.params.token, function(error) {
+            if(error) {
+                console.log(error)
+            } else {
+                Router.go('/');
+                console.log('Success')
+            }
+        })
+    } 
+});
+
 Router.route('/list/:_id', {
     name: 'listPage',
     template: 'listPage',

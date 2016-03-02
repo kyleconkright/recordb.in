@@ -145,10 +145,22 @@ Template.register.onRendered(function() {
                     if(error.reason == "Email already exists.") {
                         validator.showErrors({
                             email: "That email is already registered"
+                            // Bert.alert( 'That email is already registered', 'danger' );
                         });
                     }
                 } else {
-                    Router.go('home');
+                    // Router.go('home');
+                    Meteor.call('sendVerificationLink', function(error, response) {
+                        if(error) {
+                            console.log(error.reason);
+                            console.log('Meteor call not working');
+                            Bert.alert(error.reason, 'danger', 'growl-top-right' );
+
+                        } else {
+                            Bert.alert('success');
+                            Router.go('home');
+                        }
+                    });
                 }
             });
         }
