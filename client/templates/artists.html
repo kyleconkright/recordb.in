@@ -1,0 +1,16 @@
+<template name="artists">
+	<div class="container">
+		<h2>Records</h2>
+		{{> addArtist}}
+		<ul>
+			{{#if Template.subscriptionsReady}}
+				{{#each artist}}
+				<li><a href="{{pathFor route='artistPage'}}">{{name}}</a></li>
+				{{/each}}
+			{{else}}
+				<div class="loading"><p>Loading...</p></div>
+			{{/if}}
+		</ul>
+		
+	</div>
+</template>

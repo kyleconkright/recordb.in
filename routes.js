@@ -23,19 +23,19 @@ Router.route('/verify-email/:token', {
                 console.log(error)
             } else {
                 Router.go('/');
-                console.log('Success')
+                Bert.alert('Thanks for verifying!', 'info', 'growl-top-right');
             }
         })
     } 
 });
 
-Router.route('/list/:_id', {
-    name: 'listPage',
-    template: 'listPage',
+Router.route('/artist/:_id', {
+    name: 'artistPage',
+    template: 'artistPage',
     data: function(){
-        var currentList = this.params._id;
+        var currentArtist = this.params._id;
         var currentUser = Meteor.userId();
-        return Lists.findOne({ _id: currentList, createdBy: currentUser });
+        return Artists.findOne({ _id: currentArtist, createdBy: currentUser });
     },
     onBeforeAction: function(){
         var currentUser = Meteor.userId();
@@ -46,7 +46,7 @@ Router.route('/list/:_id', {
         }
     },
     waitOn: function(){
-        var currentList = this.params._id;
-        return Meteor.subscribe('todos', currentList);
+        var currentArtist = this.params._id;
+        return Meteor.subscribe('records', currentArtist);
     }
 });

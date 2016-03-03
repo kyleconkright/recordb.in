@@ -1,9 +1,9 @@
 $space: 1em;
-$blue: #11bacd;
+$blue: #12a6dc;
 $white: #fafafa;
 $light: rgba(255,255,255,.1);
 $dark: #143b42;
-$gradient: linear-gradient(45deg, #10cabf, #12a6dc);
+$gradient: linear-gradient(225deg, #11c0c7, #12a6dc);
 
 * {
 	margin: 0;
@@ -18,7 +18,6 @@ $gradient: linear-gradient(45deg, #10cabf, #12a6dc);
 	text-decoration: none;
 	outline: none;
 	box-sizing: border-box;
-	-webkit-user-select: none;
 }
 
 input:-webkit-autofill {
@@ -28,10 +27,20 @@ input:-webkit-autofill {
 input, textarea {
   -webkit-appearance: none;
   -webkit-border-radius: 0;
+  -webkit-user-select: none;
 }
 
 a {
 	cursor: pointer;
+}
+
+.btn {
+	background: $blue;
+	color: $white;
+	font-weight: 400;
+	display: inline-block;
+	padding: $space/2 $space;
+	margin: $space 0;
 }
 
 ::-webkit-input-placeholder {color: inherit !important;}
@@ -48,58 +57,3 @@ body {
 	padding: $space;
 }
 
-// form {
-// 	background: linear-gradient(45deg, rgba(100,0,0,.05), rgba(255,100,255,.1) 70%);
-// 	input {
-// 		padding: $space*1.5;
-// 		width: 100%;
-// 		cursor: pointer;
-// 	}
-// }
-
-
-
-// ul {
-// 	padding: $space*1.5;
-// 	li {
-// 		margin: 0 0 $space/2 0;
-// 		width: 100%;
-// 		&:hover .delete-todo {
-// 			display: inline-block;
-// 			opacity: 1;
-// 		}
-// 		input[type="text"] {
-// 			width: 50%;
-// 		}
-// 		div.checkbox {
-// 			display: inline-block;
-// 			position: relative;
-// 			top: -.12rem;
-// 			margin: 0.5rem .5rem 0 0;
-// 			height: $space/1.75;
-// 		    width: $space/1.75;
-// 		    border: 1px solid $dark;
-// 		    cursor: pointer;
-// 		    border-radius: 1px;
-// 		}
-// 		.delete-todo {
-// 			display: inline-block;
-// 			opacity: 0;
-// 			line-height: 0;
-// 			cursor: pointer;
-// 			color: $dark;
-// 			font-weight: 900;
-// 		}
-// 	}
-// 	li.checked {
-// 		input {
-// 			text-decoration: line-through;
-// 			color: $dark;
-// 			transition: none;
-// 		}
-// 		div.checkbox {
-// 			background: $dark;
-// 			border: none;
-// 		}
-// 	}
-// }

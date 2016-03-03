@@ -20,9 +20,19 @@ header {
 				text-align: right;
 				li {
 					display: inline;
+					padding: 0 $space/3;
 					a {
 						font-size: .75em;
 						cursor: pointer;
+						padding: 0 0 1px 0;
+						transition: .2s all;
+						border-bottom: 1px solid transparent;
+						&:hover {
+							border-bottom: 1px solid $white;
+						}
+					}
+					&:last-of-type {
+						padding: 0 0 0 $space/2;
 					}
 				}
 			}

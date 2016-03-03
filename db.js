@@ -1,5 +1,5 @@
 ///////////////
 //COLLECTIONS//
 ///////////////
-Todos = new Mongo.Collection('todos');
-Lists = new Mongo.Collection('lists');
+Artists = new Mongo.Collection('artists');
+Records = new Mongo.Collection('records');

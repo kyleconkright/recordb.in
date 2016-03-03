@@ -1,13 +1,12 @@
-
 //PUBLISH
-Meteor.publish('lists', function(){
+Meteor.publish('artists', function(){
     var currentUser = this.userId;
-    return Lists.find({createdBy: currentUser});
+    return Artists.find({createdBy: currentUser});
 });
 
-Meteor.publish('todos', function(currentList){
+Meteor.publish('records', function(currentArtist){
     var currentUser = this.userId;
-    return Todos.find({createdBy: currentUser, listId: currentList});
+    return Records.find({createdBy: currentUser, artistId: currentArtist});
 });
 
 //METHODS
@@ -18,54 +17,54 @@ Meteor.methods({
             return Accounts.sendVerificationEmail(userId);
         }
     },
-    'createNewList': function(listName){
+    'createNewArtist': function(artistName){
         var currentUser = Meteor.userId();
-        check(listName, String);
+        check(artistName, String);
         var data = {
-            name: listName,
+            name: artistName,
             createdBy: currentUser
         }
         if(!currentUser){
             throw new Meteor.Error("not-logged-in", "You're not logged-in.");
         }
-        return Lists.insert(data);
+        return Artists.insert(data);
     },
-    'removeList': function(documentId) {
+    'removeArtist': function(documentId) {
         var currentUser = Meteor.userId();
-        var currentList = Lists.findOne(documentId);
+        var currentArtist = Artists.findOne(documentId);
         if(!currentUser) {
-            throw new Meteor.Error("invalid-user", "You do not own that list.")
+            throw new Meteor.Error("invalid-user", "You do not own that artist.")
         }
-        Lists.remove({_id: documentId, createdBy: currentUser});
+        Artists.remove({_id: documentId, createdBy: currentUser});
     },
-    'createListItem': function(todoName, currentList) {
-        check(todoName, String);
-        check(currentList, String);
+    'createArtistItem': function(recordName, currentArtist) {
+        check(recordName, String);
+        check(currentArtist, String);
 
         var currentUser = Meteor.userId();
         var data = {
-            name: todoName,
+            name: recordName,
             completed: false,
             createdAt: new Date(),
             createdBy: currentUser,
-            listId: currentList
+            artistId: currentArtist
         }
 
         if(!currentUser) {
             throw new Meteor.Error("not-logged-in", "You're not logged-in.");
         }
 
-        var currentList = Lists.findOne(currentList);
-        if(currentList.createdBy != currentUser) {
-            throw new Meteor.Error("invalid-user", "You don't own that list.");
+        var currentArtist = Artists.findOne(currentArtist);
+        if(currentArtist.createdBy != currentUser) {
+            throw new Meteor.Error("invalid-user", "You don't own that artist.");
         }
 
-        if(todoName !== '') {
-            return Todos.insert(data);
+        if(recordName !== '') {
+            return Records.insert(data);
         }
     },
-    'updateListItem': function(documentId, todoItem) {
-        check(todoItem, String)
+    'updateArtistItem': function(documentId, recordItem) {
+        check(recordItem, String)
         var currentUser = Meteor.userId();
         var data = {
             _id: documentId,
@@ -74,7 +73,7 @@ Meteor.methods({
         if(!currentUser) {
             throw new Meteor.Error("not-logged-in", "You're not logged in.");
         }
-        Todos.update(data, {$set: {name: todoItem}});
+        Records.update(data, {$set: {name: recordItem}});
     },
     'changeItemStatus': function(documentId, status) {
         check(status, Boolean);
@@ -86,9 +85,9 @@ Meteor.methods({
         if(!currentUser) {
             throw new Meteor.Error("not-logged-in", "You're not logged in.");  
         }
-        Todos.update(data, {$set: {completed: status}});
+        Records.update(data, {$set: {completed: status}});
     },
-    'removeListItem': function(documentId) {
+    'removeArtistItem': function(documentId) {
         var currentUser = Meteor.userId();
         var data = {
             _id: documentId,
@@ -97,6 +96,6 @@ Meteor.methods({
         if(!currentUser) {
             throw new Meteor.Error("not-logged-in", "You're not logged in.");
         }
-        Todos.remove(data);
+        Records.remove(data);
     }
 });

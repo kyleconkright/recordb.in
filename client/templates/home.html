@@ -1,6 +1,10 @@
 <template name="home">
 	{{#if currentUser}}
-		{{> lists}}
+		{{#unless currentUser.emails.[0].verified}}
+			{{> verify}}
+		{{else}}
+			{{> artists}}
+		{{/unless}}
 	{{else}}
 		{{> login}}
 	{{/if}}
