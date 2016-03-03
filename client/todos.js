@@ -13,15 +13,15 @@ Template.artists.helpers({
     }
 });
 
-Template.todos.helpers({
-	'todo': function() {
+Template.records.helpers({
+	'record': function() {
         var currentArtist = this._id;
         var currentUser = Meteor.userId();
 		return Records.find({artistId: currentArtist, createdBy: currentUser}, {sort: {createdAt: -1}});
 	}
 });
 
-Template.todoItem.helpers({
+Template.recordItem.helpers({
     'checked': function() {
         var isCompleted = this.completed;
         if(isCompleted) {
@@ -70,20 +70,20 @@ Template.addArtist.events({
 Template.addRecord.events({
 	'submit form': function(event) {
 		event.preventDefault();
-        var todoName = event.target.todoName.value;
+        var recordName = event.target.recordName.value;
         var currentArtist = this._id;
-        Meteor.call('createArtistItem', todoName, currentArtist, function(error, results){
+        Meteor.call('createArtistItem', recordName, currentArtist, function(error, results){
             if(error) {
                 console.log(error.reason)
             } else {
-                event.target.todoName.value = '';
+                event.target.recordName.value = '';
             }
         });
 	}
 });
 
-Template.todoItem.events({
-	'click .delete-todo': function(event) {
+Template.recordItem.events({
+	'click .delete-record': function(event) {
 		event.preventDefault();
         var documentId = this._id;
 		var confirm = window.confirm('delete?');
@@ -91,13 +91,13 @@ Template.todoItem.events({
             Meteor.call('removeArtistItem', documentId);
 		}
 	},
-    'keyup input[name="todoItem"]': function(event) {
+    'keyup input[name="recordItem"]': function(event) {
         if(event.which == 13 || event.which == 27) {
             $(event.target).blur();
         } else {
             var documentId = this._id;
-            var todoItem = event.target.value;
-            Meteor.call('updateArtistItem', documentId, todoItem);
+            var recordItem = event.target.value;
+            Meteor.call('updateArtistItem', documentId, recordItem);
         }
     },
     'click div.checkbox': function(event) {
