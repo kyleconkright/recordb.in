@@ -34,12 +34,8 @@ Template.recordItem.helpers({
 
 
 
-
-
-
-
 //EVENTS
-Template.verify.events({
+Template.me.events({
     'click .resend-verification-link' (event) {
         Meteor.call('sendVerificationLink', (error, response) => {
             if(error) {

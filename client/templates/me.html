@@ -1,5 +1,9 @@
 <template name="me">
 	<div class="container">
 		{{currentUser.emails.[0].address}}
+		{{#unless currentUser.emails.[0].verified}}
+			<p>You need to verify your email address before using Stacks.</p>
+			<p><a href="#" class="btn resend-verification-link">Send Email</a></p>
+		{{/unless}}
 	</div>
 </template>
