@@ -2,7 +2,7 @@
 	<nav>
 		<ul>
 			{{#if currentUser}}
-				<li><a href="#"><i class="fa fa-user"></i> Me</a></li>
+				<li><a href="{{pathFor route='me'}}"><i class="fa fa-user"></i> Me</a></li>
 				<li><a href="#" class="logout">Log Out</a></li>
 			{{else}}
 				<li><a href="{{pathFor route='register'}}">Register</a></li>

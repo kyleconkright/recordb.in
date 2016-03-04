@@ -15,6 +15,19 @@ Router.route('/register');
 
 Router.route('/login');
 
+Router.route('/me', {
+    name: 'me',
+    template: 'me',
+    onBeforeAction: function(){
+        var currentUser = Meteor.userId();
+        if(currentUser) {
+            this.next();
+        } else {
+            Router.go('login');
+        }
+    }
+});
+
 Router.route('/verify-email/:token', {
     name: 'verify-email',
     action(params) {
@@ -42,7 +55,7 @@ Router.route('/artist/:_id', {
         if(currentUser){
             this.next();
         } else {
-            this.render("login");
+            this.render('login');
         }
     },
     waitOn: function(){
