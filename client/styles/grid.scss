@@ -1,0 +1,21 @@
+@import 'style.scss';
+
+ul.grid {
+    display: flex;
+    flex-flow: row wrap;
+    margin: $space/2;
+    li {
+		flex: 0 1 20%;
+		padding: $space/2 $space/2 $space*2;
+		overflow: hidden;
+	    white-space: nowrap;
+    	div.cover {
+    		background: #f7f7f7;
+    		padding-bottom: 100%;
+    	}
+    	p.title, p.artist {
+    		overflow: hidden;
+		    text-overflow: ellipsis;
+    	}
+    }
+}

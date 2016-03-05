@@ -42,6 +42,14 @@ Router.route('/verify-email/:token', {
     } 
 });
 
+Router.route('/records/', {
+    name: 'records',
+    template: 'records',
+    data: function(){
+        return Records.find();
+    }
+});
+
 Router.route('/artist/:_id', {
     name: 'artistPage',
     template: 'artistPage',

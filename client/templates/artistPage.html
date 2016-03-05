@@ -1,6 +1,7 @@
 <template name="artistPage">
-	<div class="container">
-		<h2>{{name}}</h2>
-		{{> records}}
+	<div id="artist-page" class="container">
+		<h2 class="artist-name">{{name}}</h2>
+		{{> addRecord}}
 	</div>
+	{{> records}}
 </template>

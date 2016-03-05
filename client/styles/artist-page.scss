@@ -1,0 +1,16 @@
+@import 'style.scss';
+
+#artist-page {
+	h2.artist-name {
+		font-size: 2em;
+	}
+}
+
+.records {
+	p.title {
+		font-weight: 400;
+		font-style: italic;
+		color: $dark/.85;
+	    font-size: 0.85em;
+	}
+}
