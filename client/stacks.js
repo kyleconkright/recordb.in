@@ -137,6 +137,7 @@ Template.register.events({
         event.preventDefault();
         let email = $('input[type=email]').val();
         let password = $('input[type=password]').val();
+        let confirmpassword = $('input[name=confirm-password]').val();
         Accounts.createUser({
             email: email,
             password: password
